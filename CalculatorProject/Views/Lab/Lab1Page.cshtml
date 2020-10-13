@@ -1,0 +1,85 @@
+﻿@model string[]
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calculator</title>
+</head>
+<body>
+    <h1 style="color:#57ab9b" class="Lab">Работа с массивом</h1>
+    <img src="https://i.gifer.com/ICU.gif" />
+    <img style="position:absolute;right:8px" src="https://i.gifer.com/ICU.gif" />
+
+    @using (Html.BeginForm("Mult", "Lab"))
+    {
+<div align="center">
+    <button class="btn1" type="button" onclick="location.href='@Url.Action("Lab1Page", "Lab")'">Сгенерировать</button><br />
+    @if (Model != null)
+    {
+        <textarea name="numstring" rows="7" cols="40">@Model[0]</textarea><br />
+    }
+
+
+    <input type="submit" value="Посчитать" />
+    <label style="background-color:#DCDCDC; font-weight:bold">Произведеие чисел больше 0 и меньше 54: </label>
+    @{
+        if (Model != null)
+        {
+            if (Model.Length > 1)
+            {
+        <label style="background-color:#DCDCDC"> @Model[1]</label>
+            }
+        }
+    }
+</div>
+    }
+    
+    <footer style="position:fixed; height:50px; bottom:7px; left:39%;">
+        <div align="center" class="btn-cont">
+            <ul class="hr">
+                <li><button class="btn" type="button" onclick="location.href='@Url.Action("MainPage", "Calc")'">На главную</button></li>
+                <li><button class="btn" type="button" onclick="location.href='@Url.Action("Calcpage", "Calc")'">Калькулятор</button></li>
+
+
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
+
+<style>
+    .Lab {
+        font-family: 'Comic Sans MS';
+        text-align: center;
+        line-height: 1em;
+        color: #fff9d6;
+        font-weight: bold;
+        font-size: 75px;
+        text-shadow: 0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+    }
+
+    body {
+        background-image: url('https://sun9-10.userapi.com/c857324/v857324602/16d271/UTA9x3ci0EU.jpg');
+        background-repeat: no-repeat;
+        background-color: lightskyblue;
+        background-position: 50% 10%;
+    }
+    .btn {
+        font-size: 28px;
+        font-family: Tahoma;
+        color: #c2dfe2;
+        background-color: #57ab9b;
+        font-weight: bold;
+    }
+
+    /*  .btn-cont {
+        margin: 0  auto;
+        margin-bottom:0;
+    }*/ 
+
+    ul.hr li {
+        display: inline;
+    }
+    
+</style>

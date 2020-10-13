@@ -1,0 +1,153 @@
+﻿@model string[]
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calculator</title>
+    <script>
+        var a = 0;
+        function addText(val) {
+            document.getElementById("result").value += val;
+        }
+        function dis(val) {
+            document.getElementById("bn").value += val;
+        }
+       
+    </script>
+
+</head>
+<body>
+   
+   
+
+    <h1 style="color:#57ab9b" class="Calc">Калькулятор</h1>
+    <img src="https://i.gifer.com/ICU.gif" />
+    <img style="position:absolute;right:8px" src="https://i.gifer.com/ICU.gif" />
+
+    <div align="center" class="btn-cont">
+        <ul class="hr">
+            <li> <button class="btn" type="button" onclick="location.href='@Url.Action("MainPage", "Calc")'">На главную</button></li>
+            <li>  <button class="btn" type="button" onclick="location.href='@Url.Action("Lab1Page", "Lab")'">Работа с массивом</button></li>
+
+        </ul>
+    </div>
+    @using (Html.BeginForm("Submit", "Calc"))
+    {
+<div align="center">
+    <label style="background-color:#DCDCDC;font-weight:bold; font-size:14pt;">Выберите систему счисления</label>
+    <table style="background-color:#DCDCDC">
+        <tr>
+            <td><input class="calcbtn" type="button" value="8" onclick="dis('8')" /></td>
+            <td><input class="calcbtn" type="button" value="10" onclick="dis('10')" /></td>
+            <td><input class="calcbtn" type="button" value="16" onclick="dis('16')" /></td>
+            <td><input type="text" id="bn" name="base_num" size="10" /></td>
+        </tr>
+    </table>
+    <table border="0" style="background-color:#DCDCDC">
+
+        <tr>
+            <td colspan="3"><input id="result" type="text" name="operations" size="10" /></td>
+            <td><input class="calcbtn" type="submit" value="=" /></td>
+        </tr>
+        <tr>
+            <td colspan="1"><input class="calcbtn" type="button" onclick="addText('7')" value="7" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('8')" value="8" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('9')" value="9" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('+')" value="+" /></td>
+        </tr>
+        <tr>
+            <td colspan="1"><input class="calcbtn" type="button" onclick="addText('4')" value="4" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('5')" value="5" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('6')" value="6" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('-')" value="-" /></td>
+        </tr>
+        <tr>
+            <td colspan="1"><input class="calcbtn" type="button" onclick="addText('1')" value="1" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('2')" value="2" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('3')" value="3" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('*')" value="*" /></td>
+        </tr>
+        <tr>
+            <td><input class="calcbtn" type="button" onclick="addText('A')" value="A" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('B')" value="B" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('C')" value="C" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('D')" value="D" /></td>
+        </tr>
+        <tr>
+            <td><input class="calcbtn" type="button" onclick="addText('E')" value="E" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('F')" value="F" /></td>
+        </tr>
+        <tr>
+            <td colspan="1"><input class="calcbtn" type="button" onclick="addText('/')" value="/" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('0')" value="0" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('^')" value="^" /></td>
+            <td><input class="calcbtn" type="button" onclick="addText('%')" value="%" /></td>
+        </tr>
+
+    </table>
+    <label  style="font-size:14pt;background-color:#DCDCDC">ответ:</label>
+    @{
+        if (Model != null)
+        {
+            if (Model.Length > 0)
+            {
+                <label style="font-size:14pt;background-color:#DCDCDC"> @Model[3]</label>
+
+
+            }
+
+        }
+    }
+
+</div>
+    }
+
+   
+
+</body>
+            </html>
+            <style>
+                .calcbtn {
+                    background-color: #808080;
+                    font-size:14pt;
+                }
+                .Calc {
+                    font-family: 'Comic Sans MS';
+                    text-align: center;
+                    line-height: 1em;
+                    color: #fff9d6;
+                    font-weight: bold;
+                    font-size: 75px;
+                    text-shadow: 0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+                }
+                body {
+                    background-image: url('https://sun9-10.userapi.com/c857324/v857324602/16d271/UTA9x3ci0EU.jpg');
+                    background-repeat: no-repeat;
+                    background-color: lightskyblue;
+                    background-position: 50% 10%;
+                }
+                .btn {
+                    font-size: 28px;
+                    font-family: Tahoma;
+                    color: #c2dfe2;
+                    background-color: #57ab9b;
+                    font-weight: bold;
+                }
+                .btn-cont {
+                    position: absolute;
+                    left: 35%;
+                    bottom: 0;
+                }
+                ul.hr li{
+                    display:inline;
+
+                }
+
+            </style>
+
